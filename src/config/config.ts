@@ -8,7 +8,7 @@ const createMyConfig = ({
   connectors = [metaMask()],
   walletConnectId,
 }: ConnectorProps) => {
-  const webwalletConnectors = connectors?.map((connect) => {
+  const walletConnectors = connectors?.map((connect) => {
     if (connect?.name === "WalletConnect") {
       return walletConnect({ projectId: walletConnectId! });
     }
@@ -16,7 +16,7 @@ const createMyConfig = ({
   });
   return createConfig({
     chains: [mainnet, base],
-    connectors: webwalletConnectors,
+    connectors: walletConnectors,
     storage,
     transports: {
       [mainnet.id]: http(),
