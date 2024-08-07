@@ -2,21 +2,14 @@ import { http, createConfig } from "wagmi";
 import { storage } from "./storage";
 import { base, mainnet } from "wagmi/chains";
 import { ConnectorProps } from "@/utils/connectors";
-import { metaMask, walletConnect } from "wagmi/connectors";
+import { metaMask } from "wagmi/connectors";
 
-const createMyConfig = ({
+export const createMyConfig = ({
   connectors = [metaMask()],
-  walletConnectId,
 }: ConnectorProps) => {
-  const walletConnectors = connectors?.map((connect) => {
-    if (connect?.name === "WalletConnect") {
-      return walletConnect({ projectId: walletConnectId! });
-    }
-    return connect;
-  });
   return createConfig({
     chains: [mainnet, base],
-    connectors: walletConnectors,
+    connectors: connectors,
     storage,
     transports: {
       [mainnet.id]: http(),
@@ -24,5 +17,3 @@ const createMyConfig = ({
     },
   });
 };
-
-export const config = createMyConfig({});

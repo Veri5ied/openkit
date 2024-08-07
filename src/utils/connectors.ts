@@ -8,5 +8,4 @@ type Connector =
 
 export type ConnectorProps = {
   connectors?: Connector[];
-  walletConnectId?: string;
 };
