@@ -2,10 +2,10 @@ import { http, createConfig } from "wagmi";
 import { storage } from "./storage";
 import { base, mainnet } from "wagmi/chains";
 import { ConnectorProps } from "@/utils/connectors";
-import { metaMask } from "wagmi/connectors";
+import { injected } from "wagmi/connectors";
 
 export const createMyConfig = ({
-  connectors = [metaMask()],
+  connectors = [injected()],
 }: ConnectorProps) => {
   return createConfig({
     chains: [mainnet, base],

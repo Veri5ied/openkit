@@ -1,7 +1,12 @@
 import "./App.css";
+import WalletOptions from "./components/wallet-options";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <WalletOptions />
+    </>
+  );
 }
 
 export default App;
