@@ -4,7 +4,7 @@ import OpenKitModal from "./components/openkit-modal";
 function App() {
   return (
     <>
-      <OpenKitModal />
+      <OpenKitModal trigger={<button>Open Now</button>} />
     </>
   );
 }

@@ -4,9 +4,13 @@ import OpenKitWagmiProvider, {
 
 type OpenKitProviderProps = OpenKitWagmiProviderProps;
 
-const OpenKitProvider = ({ children, connectors }: OpenKitProviderProps) => {
+const OpenKitProvider = ({
+  children,
+  connectors,
+  theme,
+}: OpenKitProviderProps) => {
   return (
-    <OpenKitWagmiProvider connectors={connectors}>
+    <OpenKitWagmiProvider connectors={connectors} theme={theme}>
       {children}
     </OpenKitWagmiProvider>
   );

@@ -13,6 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         coinbaseWallet(),
         walletConnect({ projectId: "" }),
       ]}
+      theme="light"
     >
       <App />
     </OpenKitProvider>
