@@ -1,10 +1,10 @@
 import "./App.css";
-import WalletOptions from "./components/wallet-options";
+import OpenKitModal from "./components/openkit-modal";
 
 function App() {
   return (
     <>
-      <WalletOptions />
+      <OpenKitModal />
     </>
   );
 }
