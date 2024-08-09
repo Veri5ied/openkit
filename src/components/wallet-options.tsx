@@ -1,16 +1,22 @@
 import { useConnect } from "wagmi";
 import { Button } from "./ui/button";
+import { useGetConnector } from "@/context/connector";
 
 const WalletOptions = () => {
   const { connectors, connect } = useConnect();
   const available_connectors = Array.from(
     new Map(connectors.map((connector) => [connector.name, connector])).values()
   );
+  const { setConnector } = useGetConnector();
+
   return available_connectors.map((connector) => (
     <Button
       key={connector.uid}
       variant="outline"
-      onClick={() => connect({ connector })}
+      onClick={() => {
+        connect({ connector });
+        setConnector(connector);
+      }}
       className="px-2 min-h-[44px] flex gap-2 justify-between px-4 w-full font-medium"
     >
       <div className="flex items-center justify-start gap-2">

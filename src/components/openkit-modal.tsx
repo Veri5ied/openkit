@@ -8,6 +8,8 @@ import {
 import WalletOptions from "./wallet-options";
 import { ReactNode } from "react";
 import { useTheme } from "@/context/theme";
+import { useAddress, useLogout } from "@/hooks";
+import { useGetConnector } from "@/context/connector";
 
 interface OpenKitModalTriggerProps {
   trigger: ReactNode;
@@ -15,6 +17,14 @@ interface OpenKitModalTriggerProps {
 
 const OpenKitModal = ({ trigger }: OpenKitModalTriggerProps) => {
   const { theme } = useTheme();
+  const account = useAddress();
+  const { connector } = useGetConnector();
+  const { address, isConnected, isConnecting } = account;
+  const logout = useLogout();
+
+  console.log(address);
+  console.log(connector);
+
   return (
     <Dialog>
       <DialogTrigger>{trigger}</DialogTrigger>

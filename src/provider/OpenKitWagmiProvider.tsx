@@ -4,6 +4,7 @@ import { createMyConfig } from "@/config/config";
 import { type ReactNode } from "react";
 import { ConnectorProps } from "@/utils/connectors";
 import { ThemeProvider } from "@/context/theme";
+import { GetConnectorProvider } from "@/context/connector";
 
 const queryClient = new QueryClient();
 
@@ -21,7 +22,9 @@ const OpenKitWagmiProvider = ({
   return (
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <ThemeProvider initialTheme={theme}>{children}</ThemeProvider>
+        <ThemeProvider initialTheme={theme}>
+          <GetConnectorProvider>{children}</GetConnectorProvider>
+        </ThemeProvider>
       </QueryClientProvider>
     </WagmiProvider>
   );
