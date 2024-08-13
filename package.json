@@ -22,7 +22,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b tsconfig.declaration.json && vite build",
     "lint": "biome check .",
     "prepare": "bun run build",
     "format": "biome format .",
