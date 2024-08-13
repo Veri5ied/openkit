@@ -11,7 +11,6 @@ export default defineConfig({
       name: "OpenKit",
       fileName: (format) => `index.${format}.js`,
     },
-    minify: "esbuild",
     rollupOptions: {
       external: ["react", "react-dom"],
       output: {
@@ -20,8 +19,9 @@ export default defineConfig({
           "react-dom": "ReactDOM",
         },
       },
+      treeshake: true,
     },
-    sourcemap: process.env.NODE_ENV !== "production",
+    sourcemap: false,
     emptyOutDir: true,
   },
   plugins: [react(), dts()],
