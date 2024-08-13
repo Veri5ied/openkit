@@ -1,4 +1,4 @@
-import "./App.css";
+//import "./App.css";
 import OpenKitModal from "./components/openkit-modal";
 
 function App() {
